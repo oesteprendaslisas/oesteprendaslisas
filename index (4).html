@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oeste Prendas Lisas</title>
+<meta name="description" content="Remeras lisas de algodón. Compra por WhatsApp.">
+<style>
+  :root {
+    --paper: #FAFAF8;
+    --ink: #1E1E1C;
+    --muted: #6B6B66;
+    --line: #E4E3DE;
+    --accent: #4A5A3C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 28px 0; border-bottom: 1px solid var(--line);
+  }
+  .brand { font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; text-decoration: none; }
+  nav a { font-size: 0.92rem; color: var(--muted); text-decoration: none; margin-left: 24px; }
+  nav a:hover { color: var(--ink); }
+
+  .hero { padding: 96px 0 88px; }
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.05; max-width: 14ch;
+  }
+  .hero p { margin-top: 24px; font-size: 1.1rem; color: var(--muted); max-width: 44ch; }
+  .btn {
+    display: inline-block; margin-top: 36px; padding: 14px 26px;
+    background: var(--ink); color: var(--paper); text-decoration: none;
+    font-size: 0.97rem; font-weight: 500; border-radius: 2px; transition: background 0.2s;
+  }
+  .btn:hover { background: var(--accent); }
+
+  .products { padding-bottom: 96px; }
+  .products h2, .section-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 40px; }
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 48px 28px;
+  }
+  .item img {
+    display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+    border-radius: 2px; border: 1px solid var(--line); margin-bottom: 18px;
+    background: #EEEEEB;
+  }
+  .item h3 { font-size: 1rem; font-weight: 500; }
+  .item .price { font-size: 0.97rem; font-weight: 600; margin-top: 8px; }
+  .item a.order {
+    display: inline-block; margin-top: 12px; font-size: 0.9rem;
+    color: var(--ink); text-underline-offset: 4px;
+  }
+
+  .prices {
+    border-top: 1px solid var(--line); padding: 72px 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  }
+  .prices h2, .info h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.97rem; }
+  td { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  td:last-child { text-align: right; font-weight: 600; }
+  .note { color: var(--muted); font-size: 0.9rem; margin-top: 14px; }
+
+  .colors ul { list-style: none; color: var(--muted); font-size: 0.97rem; }
+  .colors li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .colors p { color: var(--muted); font-size: 0.97rem; margin-top: 16px; }
+
+  .info {
+    border-top: 1px solid var(--line); padding: 72px 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  }
+  .info p, .info li { color: var(--muted); font-size: 0.97rem; }
+  .info ul { list-style: none; }
+  .info li + li { margin-top: 6px; }
+
+  .resellers {
+    border-top: 1px solid var(--line); padding: 72px 0;
+  }
+  .resellers .intro { color: var(--muted); font-size: 0.97rem; max-width: 52ch; margin-bottom: 40px; }
+  .resellers .split {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  }
+  .resellers h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 20px; }
+  .resellers ul { list-style: none; color: var(--muted); font-size: 0.97rem; }
+  .resellers li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .resellers .btn { margin-top: 32px; }
+
+  .gallery {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 32px 16px; margin-top: 56px;
+  }
+  .gallery figure img {
+    display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+    border-radius: 2px; border: 1px solid var(--line); background: #EEEEEB;
+  }
+  .gallery figcaption { margin-top: 8px; font-size: 0.9rem; color: var(--muted); }
+  footer {
+    border-top: 1px solid var(--line); padding: 28px 0; font-size: 0.88rem;
+    color: var(--muted); display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  @media (max-width: 700px) {
+    .hero { padding: 64px 0 56px; }
+    .prices, .info, .resellers .split { grid-template-columns: 1fr; gap: 32px; }
+    .prices, .info { padding: 56px 0; }
+    .resellers { padding: 56px 0; }
+    nav a { margin-left: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <a class="brand" href="#">Oeste Prendas Lisas</a>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#precios">Precios</a>
+      <a href="#revendedores">Revendedores</a>
+      <a href="#info">Envíos</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Remeras lisas de algodón.</h1>
+    <p>Calidad premium en algodón. Básicas, de buena tela y buen calce, para usar todos los días.</p>
+    <a class="btn" href="https://wa.me/5491158904458?text=Hola!%20Quiero%20consultar%20por%20las%20remeras" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+  </section>
+
+  <section class="info" id="info">
+    <div>
+      <h2>Materiales</h2>
+      <ul>
+        <li>Algodón peinado 24.1, tela suave y resistente.</li>
+        <li>Con tirillera, refuerzo en cuello y tapa costura.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Envíos</h2>
+      <ul>
+        <li>Envíos a todo el país.</li>
+        <li>Retiro en persona, coordinado por WhatsApp.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="products" id="productos">
+    <h2>Productos</h2>
+    <div class="grid">
+      <article class="item">
+        <img src="img/negra.jpg" alt="Remera lisa negra" loading="lazy">
+        <h3>Remera lisa negra</h3>
+        <p class="price">$9.500</p>
+        <a class="order" href="https://wa.me/5491158904458?text=Hola!%20Quiero%20la%20remera%20lisa%20negra" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </article>
+
+      <article class="item">
+        <img src="img/blanca.jpg" alt="Remera lisa blanca" loading="lazy">
+        <h3>Remera lisa blanca</h3>
+        <p class="price">$9.500</p>
+        <a class="order" href="https://wa.me/5491158904458?text=Hola!%20Quiero%20la%20remera%20lisa%20blanca" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </article>
+
+      <article class="item">
+        <img src="img/gris.jpg" alt="Remera lisa gris melange" loading="lazy">
+        <h3>Remera lisa gris melange</h3>
+        <p class="price">$9.500</p>
+        <a class="order" href="https://wa.me/5491158904458?text=Hola!%20Quiero%20la%20remera%20lisa%20gris" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </article>
+
+      <article class="item">
+        <img src="img/beige.jpg" alt="Remera lisa beige" loading="lazy">
+        <h3>Remera lisa beige</h3>
+        <p class="price">$9.500</p>
+        <a class="order" href="https://wa.me/5491158904458?text=Hola!%20Quiero%20la%20remera%20lisa%20beige" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </article>
+
+      <article class="item">
+        <img src="img/bordo.jpg" alt="Remera lisa bordo" loading="lazy">
+        <h3>Remera lisa bordo</h3>
+        <p class="price">$9.500</p>
+        <a class="order" href="https://wa.me/5491158904458?text=Hola!%20Quiero%20la%20remera%20lisa%20bordo" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </article>
+
+      <article class="item">
+        <img src="img/roja.jpg" alt="Remera lisa roja" loading="lazy">
+        <h3>Remera lisa roja</h3>
+        <p class="price">$9.500</p>
+        <a class="order" href="https://wa.me/5491158904458?text=Hola!%20Quiero%20la%20remera%20lisa%20roja" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </article>
+
+      <article class="item">
+        <img src="img/verde.jpg" alt="Remera lisa verde" loading="lazy">
+        <h3>Remera lisa verde</h3>
+        <p class="price">$9.500</p>
+        <a class="order" href="https://wa.me/5491158904458?text=Hola!%20Quiero%20la%20remera%20lisa%20verde" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </article>
+
+      <article class="item">
+        <img src="img/celeste.jpg" alt="Remera lisa celeste" loading="lazy">
+        <h3>Remera lisa celeste</h3>
+        <p class="price">$9.500</p>
+        <a class="order" href="https://wa.me/5491158904458?text=Hola!%20Quiero%20la%20remera%20lisa%20celeste" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </article>
+
+      <article class="item">
+        <img src="img/azul.jpg" alt="Remera lisa azul" loading="lazy">
+        <h3>Remera lisa azul</h3>
+        <p class="price">$9.500</p>
+        <a class="order" href="https://wa.me/5491158904458?text=Hola!%20Quiero%20la%20remera%20lisa%20azul" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="prices" id="precios">
+    <div>
+      <h2>Precio por cantidad</h2>
+      <table>
+        <tr><td>1 a 4 unidades</td><td>$9.500</td></tr>
+        <tr><td>5 o más unidades</td><td>$9.000</td></tr>
+        <tr><td>12 o más unidades</td><td>$7.500</td></tr>
+        <tr><td>20 o más unidades</td><td>$7.000</td></tr>
+      </table>
+      <p class="note">Precio unitario. Pagás por transferencia bancaria. Te pasamos los datos por WhatsApp al confirmar el pedido.</p>
+    </div>
+    <div class="colors">
+      <h2>Colores y talles</h2>
+      <ul>
+        <li>Negro, blanco, gris melange, beige, bordo, rojo, verde, celeste y azul.</li>
+      </ul>
+      <p>Talles S, M, L, XL y XXL.</p>
+      <p>Calidad premium, por menor y por mayor.</p>
+    </div>
+  </section>
+
+  <section class="resellers" id="revendedores">
+    <h2 class="section-title">Para revendedores y estampadores</h2>
+    <p class="intro">Precios mayoristas según cantidad. Remeras de algodón 24.1, ideales para estampado. Sin tirillera, sin refuerzo de hombro a hombro, sin tira de limpieza.</p>
+    <div class="split">
+      <div>
+        <h2>Precios mayoristas</h2>
+        <table>
+          <tr><td>Por unidad</td><td>$7.500</td></tr>
+          <tr><td>5 a 9 unidades</td><td>$6.500</td></tr>
+          <tr><td>10 a 19 unidades</td><td>$5.500</td></tr>
+          <tr><td>20 o más unidades</td><td>$4.600</td></tr>
+        </table>
+      </div>
+      <div>
+        <h2>Colores y talles</h2>
+        <ul>
+          <li>Blanco, negro, lila, fucsia, marrón chocolate, beige, verde militar, verde benetton, azul marino, amarillo huevo y amarillo pastel.</li>
+        </ul>
+        <p class="note">Talles S, M, L, XL.</p>
+        <a class="btn" href="https://wa.me/5491158904458?text=Hola!%20Soy%20revendedor%20y%20quiero%20consultar%20precios%20mayoristas" target="_blank" rel="noopener">Consultar precios mayoristas</a>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure><img src="img/rev-blanco.jpg" alt="Remera lisa blanco" loading="lazy"><figcaption>Blanco</figcaption></figure>
+      <figure><img src="img/rev-fucsia.jpg" alt="Remera lisa fucsia" loading="lazy"><figcaption>Fucsia</figcaption></figure>
+      <figure><img src="img/rev-lila.jpg" alt="Remera lisa lila" loading="lazy"><figcaption>Lila</figcaption></figure>
+      <figure><img src="img/rev-marron.jpg" alt="Remera lisa marrón chocolate" loading="lazy"><figcaption>Marrón chocolate</figcaption></figure>
+      <figure><img src="img/rev-beige.jpg" alt="Remera lisa beige" loading="lazy"><figcaption>Beige</figcaption></figure>
+      <figure><img src="img/rev-negro.jpg" alt="Remera lisa negro" loading="lazy"><figcaption>Negro</figcaption></figure>
+      <figure><img src="img/rev-verde-militar.jpg" alt="Remera lisa verde militar" loading="lazy"><figcaption>Verde militar</figcaption></figure>
+      <figure><img src="img/rev-verde-benetton.jpg" alt="Remera lisa verde benetton" loading="lazy"><figcaption>Verde Benetton</figcaption></figure>
+      <figure><img src="img/rev-azul-marino.jpg" alt="Remera lisa azul marino" loading="lazy"><figcaption>Azul marino</figcaption></figure>
+      <figure><img src="img/rev-amarillo-huevo.jpg" alt="Remera lisa amarillo huevo" loading="lazy"><figcaption>Amarillo huevo</figcaption></figure>
+      <figure><img src="img/rev-amarillo-pastel.jpg" alt="Remera lisa amarillo pastel" loading="lazy"><figcaption>Amarillo pastel</figcaption></figure>
+    </div>
+  </section>
+
+</div>
+
+<div class="wrap">
+  <footer>
+    <span>Oeste Prendas Lisas</span>
+    <span>Ventas por WhatsApp</span>
+  </footer>
+</div>
+
+</body>
+</html>
